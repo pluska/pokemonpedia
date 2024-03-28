@@ -9,7 +9,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/index.html"),
-        battle: resolve(__dirname, "src/battle/index.html"),
       },
     },
   },

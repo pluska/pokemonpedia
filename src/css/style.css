@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* Variables */
 
 :root {
-  --primary-color: #B0C5A4;
-  --secondary-color: #D37676;
-  --tertiary-color: #EBC49F;
-  --quaternary-color: #F1EF99;
-  --primary-font: 'Raleway', sans-serif;
-  --secondary-font: 'Roboto', sans-serif;
+  --primary-color: #b0c5a4;
+  --secondary-color: #d37676;
+  --tertiary-color: #ebc49f;
+  --quaternary-color: #f1ef99;
+  --primary-font: "Raleway", sans-serif;
+  --secondary-font: "Roboto", sans-serif;
 }
 
 * {
@@ -18,17 +18,22 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   background-color: var(--primary-color);
-  color: #000
+  color: #000;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .nav {
