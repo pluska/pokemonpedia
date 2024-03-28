@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Variables */
+
+:root {
+  --primary-color: #B0C5A4;
+  --secondary-color: #D37676;
+  --tertiary-color: #EBC49F;
+  --quaternary-color: #F1EF99;
+  --primary-font: 'Raleway', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: var(--primary-color);
+  color: #000
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  font-family: 'Raleway', sans-serif;
+}
+
+.nav {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--tertiary-color);
+  color: #fff;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-radius: 100%;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu ul li a:hover {
+  text-decoration: underline;
+}
+
+main h1 {
+  margin-top: 4rem;
+  text-align: center;
+}
