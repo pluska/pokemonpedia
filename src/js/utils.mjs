@@ -8,6 +8,8 @@ export const renderWithTemplate = (template, parentElement, data, callback) => {
 export const loadTemplate = async (path) => await fetch(path).then((res) => res.text());
 
 export const loadHeader = async () => {
-  const header = await loadTemplate("partials/header.html");
+  const header = await loadTemplate("/partials/header.html");
   renderWithTemplate(header, document.getElementById("header"));
 }
+
+export const convertToJSON = (data) => JSON.parse(data)

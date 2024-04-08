@@ -1,3 +1,4 @@
+import Battle from "./BattleProcess.mjs";
 import Pokemon from "./Pokemon.mjs";
 import { loadHeader } from "./utils.mjs";
 
@@ -5,17 +6,24 @@ loadHeader();
 
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
-const pokemonContainer = document.getElementById("pokemon");
+const pokemonContainer = document.getElementById("pokemon-battle");
 
 searchForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const name = searchInput.value.trim();
   if (name) {
     const pokemon = new Pokemon(name);
+    const battle = new Battle(pokemon);
+    battle.init();
     if (await pokemon.init()) {
-      pokemon.renderTemplate(pokemonContainer);
+      battle.renderBattle(pokemonContainer);
+      const fightButton = document.getElementById("fight-button");
+      fightButton.addEventListener("click", () => {
+        battle.fight();
+      });
     } else {
       pokemon.renderError(pokemonContainer);
     }
   }
-});
+})
+
