@@ -22,5 +22,5 @@ if (history) {
   `;
   historyContainer.appendChild(historyCard);
 } else {
-  historyContainer.innerHTML = "<p>You haven't played any games yet. Go to the battle page and play a game! <a href='/battle/index.html'>Battle</a></p>";
+  historyContainer.innerHTML = "<p>You haven't played any games yet. Go to the battle page and play a game!</p><br><a class='btn' href='/battle/index.html'>Battle</a>";
 }

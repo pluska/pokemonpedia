@@ -103,7 +103,7 @@ main h1 {
   font-size: 1rem;
 }
 
-#search button {
+#search button, .btn {
   background-color: var(--secondary-color);
   color: #fff;
   padding: 0.5rem;
@@ -113,7 +113,7 @@ main h1 {
   cursor: pointer;
 }
 
-#search button:hover {
+#search button:hover, .btn:hover {
   background-color: var(--tertiary-color);
 }
 
