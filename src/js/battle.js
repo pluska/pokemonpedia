@@ -9,12 +9,13 @@ const searchInput = document.getElementById("search-input");
 const pokemonContainer = document.getElementById("pokemon-battle");
 
 searchForm.addEventListener("submit", async (event) => {
+  event.stopPropagation();
   event.preventDefault();
   const name = searchInput.value.trim();
   if (name) {
     const pokemon = new Pokemon(name);
     const battle = new Battle(pokemon);
-    battle.init();
+    await battle.init();
     if (await pokemon.init()) {
       battle.renderBattle(pokemonContainer);
       const fightButton = document.getElementById("fight-button");

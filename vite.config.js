@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "src/index.html"),
         battle: resolve(__dirname, "src/battle/index.html"),
+        history: resolve(__dirname, "src/history/index.html"),
       },
     },
   },

@@ -43,7 +43,7 @@ const opponent = new Pokemon();
 export default class Battle {
   constructor(pokemon) {
     this.player = pokemon;
-    this.opponent = new Pokemon();
+    this.opponent = null;
   }
 
   async init() {
@@ -60,21 +60,49 @@ export default class Battle {
     this.opponent.stats = data.stats;
   }
 
+  firstAttack() {
+    if (this.player.stats[5].base_stat > this.opponent.stats[5].base_stat) {
+      return this.player
+    } else {
+      return this.opponent
+    }
+  }
+
   renderBattle(parentElement) {
+    parentElement.innerHTML = "";
     renderWithTemplate(battleTemplate(this.player, this.opponent), parentElement)
   }
 
   fight() {
+    let attacker = this.firstAttack();
+    let defender = attacker === this.player ? this.opponent : this.player;
     while (this.player.health > 0 && this.opponent.health > 0) {
-      this.player.attack(this.opponent);
-      if (this.opponent.health > 0) {
-        this.opponent.attack(this.player);
+      attacker.attack(defender);
+      if (defender.health <= 0) {
+        break;
       }
+      attacker = attacker === this.player ? this.opponent : this.player;
+      defender = attacker === this.player ? this.opponent : this.player;
     }
-    if (this.player.health > 0) {
-      renderWithTemplate(winnerAnnouncement(this.player), document.getElementById("banner"))
+    const parentElement = document.getElementById("banner");
+    parentElement.innerHTML = "";
+    if (defender !== this.player) {
+      renderWithTemplate(winnerAnnouncement(this.player), parentElement)
+      this.setPlayerHistory("won");
     } else {
-      renderWithTemplate(winnerAnnouncement(this.opponent), document.getElementById("banner"))
+      renderWithTemplate(winnerAnnouncement(this.opponent), parentElement)
+      this.setPlayerHistory("lost");
+    }
+  }
+
+  setPlayerHistory(result) {
+    const history = localStorage.getItem("history");
+    if (history) {
+      const historyArray = JSON.parse(history);
+      historyArray.push(`${this.player.name} ${result}`);
+      localStorage.setItem("history", JSON.stringify(historyArray));
+    } else {
+      localStorage.setItem("history", JSON.stringify([`${this.player.name} ${result}`]));
     }
   }
 }

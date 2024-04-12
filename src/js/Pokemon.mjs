@@ -53,6 +53,7 @@ export default class Pokemon {
   }
 
   renderTemplate(parentElement) {
+    parentElement.innerHTML = "";
     parentElement.insertAdjacentHTML("afterbegin", cardTemplate(this));
   }
 
@@ -66,6 +67,14 @@ export default class Pokemon {
       this.searchPokemonById(Math.floor(Math.random() * 248) + 1);
     }
     return data;
+  }
+
+  attack(opponent) {
+    const damage = this.stats[4].base_stat;
+    opponent.stats[0].base_stat -= (damage - opponent.stats[2].base_stat);
+    if (opponent.stats[0].base_stat < 0) {
+      opponent.stats[0].base_stat = 0;
+    }
   }
 
 }

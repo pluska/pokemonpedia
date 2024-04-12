@@ -211,3 +211,10 @@ main h1 {
 #fight-button:hover {
   background-color: var(--tertiary-color);
 }
+
+#pokemon-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
